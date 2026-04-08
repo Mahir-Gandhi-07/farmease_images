@@ -1,0 +1,460 @@
+
+<div style="width:100%;overflow-x:auto;">
+<svg width="1600" viewBox="0 0 1600 1200" role="img" xmlns="http://www.w3.org/2000/svg">
+<title>ER Diagram - Agricultural Platform</title>
+<desc>Traditional ER diagram with rectangular entities, oval attributes, diamond relationships</desc>
+<defs>
+  <marker id="ah" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+    <path d="M2 1L9 5L2 9" fill="none" stroke="#888" stroke-width="1.4" stroke-linecap="round"/>
+  </marker>
+</defs>
+
+<!-- ═══════════════════════════════════════════════════
+     LAYOUT PLAN  (all coords in px, viewBox 1600×1200)
+     
+     USER          rect  cx=800  cy=560  w=160 h=44
+     AGRIITEM      rect  cx=240  cy=200  w=160 h=44
+     MACHINERY     rect  cx=1360 cy=200  w=160 h=44
+     ORDER         rect  cx=1360 cy=560  w=140 h=44
+     ORDERITEM     rect  cx=1360 cy=880  w=160 h=44
+     CARTITEM      rect  cx=800  cy=950  w=160 h=44
+     WISHLISTITEM  rect  cx=240  cy=880  w=180 h=44
+     CHATMESSAGE   rect  cx=240  cy=560  w=180 h=44
+
+     RELATIONSHIPS (diamonds):
+       posts       cx=520  cy=380
+       lists       cx=1080 cy=380
+       places      cx=1080 cy=560
+       contains    cx=1360 cy=720
+       has         cx=800  cy=750
+       wishes      cx=520  cy=720
+       sends       cx=520  cy=560
+
+     Each entity has its attributes as ovals around it.
+     Connector lines are L-shaped to avoid crossings.
+═══════════════════════════════════════════════════ -->
+
+<!-- ══════════════════════════════════════
+     CONNECTOR LINES (drawn first, behind everything)
+     ══════════════════════════════════════ -->
+
+<!-- USER — posts — AGRIITEM -->
+<line x1="720" y1="560" x2="560" y2="380" stroke="#aaa" stroke-width="1.2" fill="none"/>
+<line x1="560" y1="380" x2="320" y2="222" stroke="#aaa" stroke-width="1.2" fill="none"/>
+
+<!-- USER — lists — MACHINERY -->
+<line x1="880" y1="560" x2="1080" y2="380" stroke="#aaa" stroke-width="1.2" fill="none"/>
+<line x1="1080" y1="380" x2="1280" y2="222" stroke="#aaa" stroke-width="1.2" fill="none"/>
+
+<!-- USER — places — ORDER -->
+<line x1="880" y1="560" x2="1080" y2="560" stroke="#aaa" stroke-width="1.2" fill="none"/>
+<line x1="1110" y1="560" x2="1290" y2="560" stroke="#aaa" stroke-width="1.2" fill="none"/>
+
+<!-- USER — sends — CHATMESSAGE -->
+<line x1="720" y1="560" x2="560" y2="560" stroke="#aaa" stroke-width="1.2" fill="none"/>
+<line x1="530" y1="560" x2="330" y2="560" stroke="#aaa" stroke-width="1.2" fill="none"/>
+
+<!-- USER — has — CARTITEM -->
+<line x1="800" y1="582" x2="800" y2="750" stroke="#aaa" stroke-width="1.2" fill="none"/>
+<line x1="800" y1="770" x2="800" y2="928" stroke="#aaa" stroke-width="1.2" fill="none"/>
+
+<!-- USER — wishes — WISHLISTITEM -->
+<line x1="720" y1="560" x2="520" y2="720" stroke="#aaa" stroke-width="1.2" fill="none"/>
+<line x1="520" y1="742" x2="330" y2="880" stroke="#aaa" stroke-width="1.2" fill="none"/>
+
+<!-- ORDER — contains — ORDERITEM -->
+<line x1="1360" y1="582" x2="1360" y2="720" stroke="#aaa" stroke-width="1.2" fill="none"/>
+<line x1="1360" y1="742" x2="1360" y2="858" stroke="#aaa" stroke-width="1.2" fill="none"/>
+
+<!-- ══════════════════════════════════════
+     ATTRIBUTE OVALS & CONNECTOR LINES
+     ══════════════════════════════════════ -->
+
+<!-- ─── USER attributes ─── -->
+<!-- Id PK -->
+<line x1="800" y1="560" x2="700" y2="460" stroke="#bbb" stroke-width="0.9"/>
+<ellipse cx="680" cy="440" rx="44" ry="16" fill="#fff9c4" stroke="#e0a800" stroke-width="1.5"/>
+<text font-family="sans-serif" font-size="11" font-weight="700" fill="#7a4800" text-anchor="middle" dominant-baseline="central" x="680" y="440">Id (PK)</text>
+
+<!-- FullName -->
+<line x1="800" y1="560" x2="780" y2="450" stroke="#bbb" stroke-width="0.9"/>
+<ellipse cx="780" cy="432" rx="46" ry="16" fill="#e8f5e9" stroke="#4caf50" stroke-width="1.5"/>
+<text font-family="sans-serif" font-size="11" fill="#1b5e20" text-anchor="middle" dominant-baseline="central" x="780" y="432">FullName</text>
+
+<!-- Email -->
+<line x1="800" y1="560" x2="870" y2="450" stroke="#bbb" stroke-width="0.9"/>
+<ellipse cx="880" cy="432" rx="36" ry="16" fill="#e8f5e9" stroke="#4caf50" stroke-width="1.5"/>
+<text font-family="sans-serif" font-size="11" fill="#1b5e20" text-anchor="middle" dominant-baseline="central" x="880" y="432">Email</text>
+
+<!-- Phone -->
+<line x1="800" y1="560" x2="940" y2="468" stroke="#bbb" stroke-width="0.9"/>
+<ellipse cx="960" cy="456" rx="36" ry="16" fill="#e8f5e9" stroke="#4caf50" stroke-width="1.5"/>
+<text font-family="sans-serif" font-size="11" fill="#1b5e20" text-anchor="middle" dominant-baseline="central" x="960" y="456">Phone</text>
+
+<!-- Role -->
+<line x1="800" y1="582" x2="940" y2="590" stroke="#bbb" stroke-width="0.9"/>
+<ellipse cx="970" cy="590" rx="30" ry="16" fill="#e8f5e9" stroke="#4caf50" stroke-width="1.5"/>
+<text font-family="sans-serif" font-size="11" fill="#1b5e20" text-anchor="middle" dominant-baseline="central" x="970" y="590">Role</text>
+
+<!-- Address -->
+<line x1="800" y1="582" x2="920" y2="620" stroke="#bbb" stroke-width="0.9"/>
+<ellipse cx="950" cy="634" rx="40" ry="16" fill="#e8f5e9" stroke="#4caf50" stroke-width="1.5"/>
+<text font-family="sans-serif" font-size="11" fill="#1b5e20" text-anchor="middle" dominant-baseline="central" x="950" y="634">Address</text>
+
+<!-- Avatar -->
+<line x1="800" y1="582" x2="690" y2="630" stroke="#bbb" stroke-width="0.9"/>
+<ellipse cx="665" cy="644" rx="36" ry="16" fill="#e8f5e9" stroke="#4caf50" stroke-width="1.5"/>
+<text font-family="sans-serif" font-size="11" fill="#1b5e20" text-anchor="middle" dominant-baseline="central" x="665" y="644">Avatar</text>
+
+<!-- PasswordHash -->
+<line x1="800" y1="560" x2="670" y2="490" stroke="#bbb" stroke-width="0.9"/>
+<ellipse cx="640" cy="478" rx="52" ry="16" fill="#e8f5e9" stroke="#4caf50" stroke-width="1.5"/>
+<text font-family="sans-serif" font-size="11" fill="#1b5e20" text-anchor="middle" dominant-baseline="central" x="640" y="478">PasswordHash</text>
+
+<!-- ─── AGRIITEM attributes ─── -->
+<!-- Id PK -->
+<line x1="240" y1="200" x2="130" y2="110" stroke="#bbb" stroke-width="0.9"/>
+<ellipse cx="110" cy="94" rx="44" ry="16" fill="#fff9c4" stroke="#e0a800" stroke-width="1.5"/>
+<text font-family="sans-serif" font-size="11" font-weight="700" fill="#7a4800" text-anchor="middle" dominant-baseline="central" x="110" y="94">Id (PK)</text>
+
+<!-- Name -->
+<line x1="240" y1="200" x2="220" y2="110" stroke="#bbb" stroke-width="0.9"/>
+<ellipse cx="220" cy="94" rx="34" ry="16" fill="#e8f5e9" stroke="#4caf50" stroke-width="1.5"/>
+<text font-family="sans-serif" font-size="11" fill="#1b5e20" text-anchor="middle" dominant-baseline="central" x="220" y="94">Name</text>
+
+<!-- Category -->
+<line x1="240" y1="200" x2="330" y2="110" stroke="#bbb" stroke-width="0.9"/>
+<ellipse cx="354" cy="94" rx="44" ry="16" fill="#e8f5e9" stroke="#4caf50" stroke-width="1.5"/>
+<text font-family="sans-serif" font-size="11" fill="#1b5e20" text-anchor="middle" dominant-baseline="central" x="354" y="94">Category</text>
+
+<!-- Price -->
+<line x1="240" y1="200" x2="410" y2="160" stroke="#bbb" stroke-width="0.9"/>
+<ellipse cx="440" cy="152" rx="30" ry="16" fill="#e8f5e9" stroke="#4caf50" stroke-width="1.5"/>
+<text font-family="sans-serif" font-size="11" fill="#1b5e20" text-anchor="middle" dominant-baseline="central" x="440" y="152">Price</text>
+
+<!-- Quantity -->
+<line x1="240" y1="222" x2="420" y2="230" stroke="#bbb" stroke-width="0.9"/>
+<ellipse cx="460" cy="230" rx="44" ry="16" fill="#e8f5e9" stroke="#4caf50" stroke-width="1.5"/>
+<text font-family="sans-serif" font-size="11" fill="#1b5e20" text-anchor="middle" dominant-baseline="central" x="460" y="230">Quantity</text>
+
+<!-- Description -->
+<line x1="240" y1="222" x2="340" y2="284" stroke="#bbb" stroke-width="0.9"/>
+<ellipse cx="360" cy="296" rx="52" ry="16" fill="#e8f5e9" stroke="#4caf50" stroke-width="1.5"/>
+<text font-family="sans-serif" font-size="11" fill="#1b5e20" text-anchor="middle" dominant-baseline="central" x="360" y="296">Description</text>
+
+<!-- Image -->
+<line x1="240" y1="222" x2="200" y2="290" stroke="#bbb" stroke-width="0.9"/>
+<ellipse cx="190" cy="306" rx="34" ry="16" fill="#e8f5e9" stroke="#4caf50" stroke-width="1.5"/>
+<text font-family="sans-serif" font-size="11" fill="#1b5e20" text-anchor="middle" dominant-baseline="central" x="190" y="306">Image</text>
+
+<!-- PostedBy FK -->
+<line x1="240" y1="222" x2="100" y2="290" stroke="#bbb" stroke-width="0.9"/>
+<ellipse cx="78" cy="304" rx="46" ry="16" fill="#fce4ec" stroke="#e91e63" stroke-width="1.5"/>
+<text font-family="sans-serif" font-size="11" fill="#880e4f" text-anchor="middle" dominant-baseline="central" x="78" y="304">PostedBy FK</text>
+
+<!-- ─── MACHINERY attributes ─── -->
+<!-- Id PK -->
+<line x1="1360" y1="200" x2="1260" y2="110" stroke="#bbb" stroke-width="0.9"/>
+<ellipse cx="1242" cy="94" rx="44" ry="16" fill="#fff9c4" stroke="#e0a800" stroke-width="1.5"/>
+<text font-family="sans-serif" font-size="11" font-weight="700" fill="#7a4800" text-anchor="middle" dominant-baseline="central" x="1242" y="94">Id (PK)</text>
+
+<!-- Name -->
+<line x1="1360" y1="200" x2="1360" y2="110" stroke="#bbb" stroke-width="0.9"/>
+<ellipse cx="1360" cy="94" rx="34" ry="16" fill="#e8f5e9" stroke="#4caf50" stroke-width="1.5"/>
+<text font-family="sans-serif" font-size="11" fill="#1b5e20" text-anchor="middle" dominant-baseline="central" x="1360" y="94">Name</text>
+
+<!-- Price -->
+<line x1="1360" y1="200" x2="1480" y2="110" stroke="#bbb" stroke-width="0.9"/>
+<ellipse cx="1500" cy="94" rx="30" ry="16" fill="#e8f5e9" stroke="#4caf50" stroke-width="1.5"/>
+<text font-family="sans-serif" font-size="11" fill="#1b5e20" text-anchor="middle" dominant-baseline="central" x="1500" y="94">Price</text>
+
+<!-- Condition -->
+<line x1="1360" y1="200" x2="1520" y2="158" stroke="#bbb" stroke-width="0.9"/>
+<ellipse cx="1548" cy="160" rx="46" ry="16" fill="#e8f5e9" stroke="#4caf50" stroke-width="1.5"/>
+<text font-family="sans-serif" font-size="11" fill="#1b5e20" text-anchor="middle" dominant-baseline="central" x="1548" y="160">Condition</text>
+
+<!-- Category -->
+<line x1="1360" y1="222" x2="1520" y2="230" stroke="#bbb" stroke-width="0.9"/>
+<ellipse cx="1556" cy="230" rx="44" ry="16" fill="#e8f5e9" stroke="#4caf50" stroke-width="1.5"/>
+<text font-family="sans-serif" font-size="11" fill="#1b5e20" text-anchor="middle" dominant-baseline="central" x="1556" y="230">Category</text>
+
+<!-- Description -->
+<line x1="1360" y1="222" x2="1490" y2="280" stroke="#bbb" stroke-width="0.9"/>
+<ellipse cx="1508" cy="292" rx="52" ry="16" fill="#e8f5e9" stroke="#4caf50" stroke-width="1.5"/>
+<text font-family="sans-serif" font-size="11" fill="#1b5e20" text-anchor="middle" dominant-baseline="central" x="1508" y="292">Description</text>
+
+<!-- Quantity -->
+<line x1="1360" y1="222" x2="1220" y2="284" stroke="#bbb" stroke-width="0.9"/>
+<ellipse cx="1200" cy="298" rx="44" ry="16" fill="#e8f5e9" stroke="#4caf50" stroke-width="1.5"/>
+<text font-family="sans-serif" font-size="11" fill="#1b5e20" text-anchor="middle" dominant-baseline="central" x="1200" y="298">Quantity</text>
+
+<!-- ─── ORDER attributes ─── -->
+<!-- Id PK -->
+<line x1="1360" y1="560" x2="1510" y2="500" stroke="#bbb" stroke-width="0.9"/>
+<ellipse cx="1530" cy="490" rx="44" ry="16" fill="#fff9c4" stroke="#e0a800" stroke-width="1.5"/>
+<text font-family="sans-serif" font-size="11" font-weight="700" fill="#7a4800" text-anchor="middle" dominant-baseline="central" x="1530" y="490">Id (PK)</text>
+
+<!-- UserId FK -->
+<line x1="1360" y1="560" x2="1520" y2="548" stroke="#bbb" stroke-width="0.9"/>
+<ellipse cx="1556" cy="548" rx="46" ry="16" fill="#fce4ec" stroke="#e91e63" stroke-width="1.5"/>
+<text font-family="sans-serif" font-size="11" fill="#880e4f" text-anchor="middle" dominant-baseline="central" x="1556" y="548">UserId FK</text>
+
+<!-- TotalAmount -->
+<line x1="1360" y1="582" x2="1516" y2="606" stroke="#bbb" stroke-width="0.9"/>
+<ellipse cx="1554" cy="614" rx="54" ry="16" fill="#e8f5e9" stroke="#4caf50" stroke-width="1.5"/>
+<text font-family="sans-serif" font-size="11" fill="#1b5e20" text-anchor="middle" dominant-baseline="central" x="1554" y="614">TotalAmount</text>
+
+<!-- OrderDate -->
+<line x1="1360" y1="582" x2="1500" y2="648" stroke="#bbb" stroke-width="0.9"/>
+<ellipse cx="1530" cy="660" rx="48" ry="16" fill="#e8f5e9" stroke="#4caf50" stroke-width="1.5"/>
+<text font-family="sans-serif" font-size="11" fill="#1b5e20" text-anchor="middle" dominant-baseline="central" x="1530" y="660">OrderDate</text>
+
+<!-- Status -->
+<line x1="1360" y1="582" x2="1460" y2="680" stroke="#bbb" stroke-width="0.9"/>
+<ellipse cx="1474" cy="696" rx="36" ry="16" fill="#e8f5e9" stroke="#4caf50" stroke-width="1.5"/>
+<text font-family="sans-serif" font-size="11" fill="#1b5e20" text-anchor="middle" dominant-baseline="central" x="1474" y="696">Status</text>
+
+<!-- ─── ORDERITEM attributes ─── -->
+<!-- Id PK -->
+<line x1="1360" y1="880" x2="1500" y2="820" stroke="#bbb" stroke-width="0.9"/>
+<ellipse cx="1520" cy="808" rx="44" ry="16" fill="#fff9c4" stroke="#e0a800" stroke-width="1.5"/>
+<text font-family="sans-serif" font-size="11" font-weight="700" fill="#7a4800" text-anchor="middle" dominant-baseline="central" x="1520" y="808">Id (PK)</text>
+
+<!-- OrderId FK -->
+<line x1="1360" y1="880" x2="1510" y2="870" stroke="#bbb" stroke-width="0.9"/>
+<ellipse cx="1548" cy="870" rx="48" ry="16" fill="#fce4ec" stroke="#e91e63" stroke-width="1.5"/>
+<text font-family="sans-serif" font-size="11" fill="#880e4f" text-anchor="middle" dominant-baseline="central" x="1548" y="870">OrderId FK</text>
+
+<!-- ProductName -->
+<line x1="1360" y1="902" x2="1506" y2="928" stroke="#bbb" stroke-width="0.9"/>
+<ellipse cx="1544" cy="934" rx="56" ry="16" fill="#e8f5e9" stroke="#4caf50" stroke-width="1.5"/>
+<text font-family="sans-serif" font-size="11" fill="#1b5e20" text-anchor="middle" dominant-baseline="central" x="1544" y="934">ProductName</text>
+
+<!-- Price -->
+<line x1="1360" y1="902" x2="1470" y2="980" stroke="#bbb" stroke-width="0.9"/>
+<ellipse cx="1480" cy="994" rx="30" ry="16" fill="#e8f5e9" stroke="#4caf50" stroke-width="1.5"/>
+<text font-family="sans-serif" font-size="11" fill="#1b5e20" text-anchor="middle" dominant-baseline="central" x="1480" y="994">Price</text>
+
+<!-- Quantity -->
+<line x1="1360" y1="902" x2="1360" y2="980" stroke="#bbb" stroke-width="0.9"/>
+<ellipse cx="1360" cy="996" rx="44" ry="16" fill="#e8f5e9" stroke="#4caf50" stroke-width="1.5"/>
+<text font-family="sans-serif" font-size="11" fill="#1b5e20" text-anchor="middle" dominant-baseline="central" x="1360" y="996">Quantity</text>
+
+<!-- ImageUrl -->
+<line x1="1360" y1="902" x2="1234" y2="970" stroke="#bbb" stroke-width="0.9"/>
+<ellipse cx="1210" cy="982" rx="44" ry="16" fill="#e8f5e9" stroke="#4caf50" stroke-width="1.5"/>
+<text font-family="sans-serif" font-size="11" fill="#1b5e20" text-anchor="middle" dominant-baseline="central" x="1210" y="982">ImageUrl</text>
+
+<!-- ─── CARTITEM attributes ─── -->
+<!-- Id PK -->
+<line x1="800" y1="950" x2="700" y2="880" stroke="#bbb" stroke-width="0.9"/>
+<ellipse cx="682" cy="866" rx="44" ry="16" fill="#fff9c4" stroke="#e0a800" stroke-width="1.5"/>
+<text font-family="sans-serif" font-size="11" font-weight="700" fill="#7a4800" text-anchor="middle" dominant-baseline="central" x="682" y="866">Id (PK)</text>
+
+<!-- UserId FK -->
+<line x1="800" y1="950" x2="640" y2="930" stroke="#bbb" stroke-width="0.9"/>
+<ellipse cx="600" cy="930" rx="46" ry="16" fill="#fce4ec" stroke="#e91e63" stroke-width="1.5"/>
+<text font-family="sans-serif" font-size="11" fill="#880e4f" text-anchor="middle" dominant-baseline="central" x="600" y="930">UserId FK</text>
+
+<!-- ProductName -->
+<line x1="800" y1="972" x2="720" y2="1040" stroke="#bbb" stroke-width="0.9"/>
+<ellipse cx="700" cy="1054" rx="56" ry="16" fill="#e8f5e9" stroke="#4caf50" stroke-width="1.5"/>
+<text font-family="sans-serif" font-size="11" fill="#1b5e20" text-anchor="middle" dominant-baseline="central" x="700" y="1054">ProductName</text>
+
+<!-- Price -->
+<line x1="800" y1="972" x2="830" y2="1040" stroke="#bbb" stroke-width="0.9"/>
+<ellipse cx="840" cy="1054" rx="30" ry="16" fill="#e8f5e9" stroke="#4caf50" stroke-width="1.5"/>
+<text font-family="sans-serif" font-size="11" fill="#1b5e20" text-anchor="middle" dominant-baseline="central" x="840" y="1054">Price</text>
+
+<!-- Quantity -->
+<line x1="800" y1="972" x2="950" y2="1030" stroke="#bbb" stroke-width="0.9"/>
+<ellipse cx="980" cy="1040" rx="44" ry="16" fill="#e8f5e9" stroke="#4caf50" stroke-width="1.5"/>
+<text font-family="sans-serif" font-size="11" fill="#1b5e20" text-anchor="middle" dominant-baseline="central" x="980" y="1040">Quantity</text>
+
+<!-- Category -->
+<line x1="800" y1="950" x2="960" y2="944" stroke="#bbb" stroke-width="0.9"/>
+<ellipse cx="1000" cy="944" rx="44" ry="16" fill="#e8f5e9" stroke="#4caf50" stroke-width="1.5"/>
+<text font-family="sans-serif" font-size="11" fill="#1b5e20" text-anchor="middle" dominant-baseline="central" x="1000" y="944">Category</text>
+
+<!-- ─── WISHLISTITEM attributes ─── -->
+<!-- Id PK -->
+<line x1="240" y1="880" x2="130" y2="810" stroke="#bbb" stroke-width="0.9"/>
+<ellipse cx="110" cy="796" rx="44" ry="16" fill="#fff9c4" stroke="#e0a800" stroke-width="1.5"/>
+<text font-family="sans-serif" font-size="11" font-weight="700" fill="#7a4800" text-anchor="middle" dominant-baseline="central" x="110" y="796">Id (PK)</text>
+
+<!-- UserId FK -->
+<line x1="240" y1="880" x2="90" y2="870" stroke="#bbb" stroke-width="0.9"/>
+<ellipse cx="54" cy="870" rx="46" ry="16" fill="#fce4ec" stroke="#e91e63" stroke-width="1.5"/>
+<text font-family="sans-serif" font-size="11" fill="#880e4f" text-anchor="middle" dominant-baseline="central" x="54" y="870">UserId FK</text>
+
+<!-- ProductName -->
+<line x1="240" y1="902" x2="160" y2="970" stroke="#bbb" stroke-width="0.9"/>
+<ellipse cx="144" cy="984" rx="56" ry="16" fill="#e8f5e9" stroke="#4caf50" stroke-width="1.5"/>
+<text font-family="sans-serif" font-size="11" fill="#1b5e20" text-anchor="middle" dominant-baseline="central" x="144" y="984">ProductName</text>
+
+<!-- Price -->
+<line x1="240" y1="902" x2="270" y2="980" stroke="#bbb" stroke-width="0.9"/>
+<ellipse cx="276" cy="996" rx="30" ry="16" fill="#e8f5e9" stroke="#4caf50" stroke-width="1.5"/>
+<text font-family="sans-serif" font-size="11" fill="#1b5e20" text-anchor="middle" dominant-baseline="central" x="276" y="996">Price</text>
+
+<!-- InStock -->
+<line x1="240" y1="902" x2="380" y2="970" stroke="#bbb" stroke-width="0.9"/>
+<ellipse cx="406" cy="982" rx="36" ry="16" fill="#e8f5e9" stroke="#4caf50" stroke-width="1.5"/>
+<text font-family="sans-serif" font-size="11" fill="#1b5e20" text-anchor="middle" dominant-baseline="central" x="406" y="982">InStock</text>
+
+<!-- Category -->
+<line x1="240" y1="880" x2="390" y2="870" stroke="#bbb" stroke-width="0.9"/>
+<ellipse cx="430" cy="870" rx="44" ry="16" fill="#e8f5e9" stroke="#4caf50" stroke-width="1.5"/>
+<text font-family="sans-serif" font-size="11" fill="#1b5e20" text-anchor="middle" dominant-baseline="central" x="430" y="870">Category</text>
+
+<!-- ─── CHATMESSAGE attributes ─── -->
+<!-- Id PK -->
+<line x1="240" y1="560" x2="110" y2="480" stroke="#bbb" stroke-width="0.9"/>
+<ellipse cx="90" cy="466" rx="44" ry="16" fill="#fff9c4" stroke="#e0a800" stroke-width="1.5"/>
+<text font-family="sans-serif" font-size="11" font-weight="700" fill="#7a4800" text-anchor="middle" dominant-baseline="central" x="90" y="466">Id (PK)</text>
+
+<!-- SenderEmail FK -->
+<line x1="240" y1="560" x2="70" y2="546" stroke="#bbb" stroke-width="0.9"/>
+<ellipse cx="34" cy="546" rx="52" ry="16" fill="#fce4ec" stroke="#e91e63" stroke-width="1.5"/>
+<text font-family="sans-serif" font-size="11" fill="#880e4f" text-anchor="middle" dominant-baseline="central" x="34" y="546">Sender FK</text>
+
+<!-- ReceiverEmail FK -->
+<line x1="240" y1="582" x2="80" y2="620" stroke="#bbb" stroke-width="0.9"/>
+<ellipse cx="44" cy="634" rx="54" ry="16" fill="#fce4ec" stroke="#e91e63" stroke-width="1.5"/>
+<text font-family="sans-serif" font-size="11" fill="#880e4f" text-anchor="middle" dominant-baseline="central" x="44" y="634">Receiver FK</text>
+
+<!-- Content -->
+<line x1="240" y1="582" x2="210" y2="660" stroke="#bbb" stroke-width="0.9"/>
+<ellipse cx="206" cy="676" rx="40" ry="16" fill="#e8f5e9" stroke="#4caf50" stroke-width="1.5"/>
+<text font-family="sans-serif" font-size="11" fill="#1b5e20" text-anchor="middle" dominant-baseline="central" x="206" y="676">Content</text>
+
+<!-- Timestamp -->
+<line x1="240" y1="582" x2="330" y2="650" stroke="#bbb" stroke-width="0.9"/>
+<ellipse cx="356" cy="662" rx="50" ry="16" fill="#e8f5e9" stroke="#4caf50" stroke-width="1.5"/>
+<text font-family="sans-serif" font-size="11" fill="#1b5e20" text-anchor="middle" dominant-baseline="central" x="356" y="662">Timestamp</text>
+
+<!-- ══════════════════════════════════════
+     ENTITY RECTANGLES
+     ══════════════════════════════════════ -->
+
+<!-- USER -->
+<rect x="720" y="538" width="160" height="44" rx="2" fill="#fff8e1" stroke="#e67e22" stroke-width="2.5"/>
+<text font-family="sans-serif" font-size="14" font-weight="700" fill="#5c3000" text-anchor="middle" dominant-baseline="central" x="800" y="560">User</text>
+
+<!-- AGRIITEM -->
+<rect x="160" y="178" width="160" height="44" rx="2" fill="#fff8e1" stroke="#e67e22" stroke-width="2.5"/>
+<text font-family="sans-serif" font-size="14" font-weight="700" fill="#5c3000" text-anchor="middle" dominant-baseline="central" x="240" y="200">AgriItem</text>
+
+<!-- MACHINERY -->
+<rect x="1280" y="178" width="160" height="44" rx="2" fill="#fff8e1" stroke="#e67e22" stroke-width="2.5"/>
+<text font-family="sans-serif" font-size="14" font-weight="700" fill="#5c3000" text-anchor="middle" dominant-baseline="central" x="1360" y="200">Machinery</text>
+
+<!-- ORDER -->
+<rect x="1290" y="538" width="140" height="44" rx="2" fill="#fff8e1" stroke="#e67e22" stroke-width="2.5"/>
+<text font-family="sans-serif" font-size="14" font-weight="700" fill="#5c3000" text-anchor="middle" dominant-baseline="central" x="1360" y="560">Order</text>
+
+<!-- ORDERITEM -->
+<rect x="1280" y="858" width="160" height="44" rx="2" fill="#fff8e1" stroke="#e67e22" stroke-width="2.5"/>
+<text font-family="sans-serif" font-size="14" font-weight="700" fill="#5c3000" text-anchor="middle" dominant-baseline="central" x="1360" y="880">OrderItem</text>
+
+<!-- CARTITEM -->
+<rect x="720" y="928" width="160" height="44" rx="2" fill="#fff8e1" stroke="#e67e22" stroke-width="2.5"/>
+<text font-family="sans-serif" font-size="14" font-weight="700" fill="#5c3000" text-anchor="middle" dominant-baseline="central" x="800" y="950">CartItem</text>
+
+<!-- WISHLISTITEM -->
+<rect x="150" y="858" width="180" height="44" rx="2" fill="#fff8e1" stroke="#e67e22" stroke-width="2.5"/>
+<text font-family="sans-serif" font-size="14" font-weight="700" fill="#5c3000" text-anchor="middle" dominant-baseline="central" x="240" y="880">WishlistItem</text>
+
+<!-- CHATMESSAGE -->
+<rect x="150" y="538" width="180" height="44" rx="2" fill="#fff8e1" stroke="#e67e22" stroke-width="2.5"/>
+<text font-family="sans-serif" font-size="14" font-weight="700" fill="#5c3000" text-anchor="middle" dominant-baseline="central" x="240" y="560">ChatMessage</text>
+
+<!-- ══════════════════════════════════════
+     RELATIONSHIP DIAMONDS
+     ══════════════════════════════════════ -->
+
+<!-- posts  cx=520 cy=380 -->
+<polygon points="520,356 556,380 520,404 484,380" fill="#fce4ec" stroke="#e91e63" stroke-width="2"/>
+<text font-family="sans-serif" font-size="12" font-weight="700" fill="#880e4f" text-anchor="middle" dominant-baseline="central" x="520" y="380">posts</text>
+
+<!-- lists  cx=1080 cy=380 -->
+<polygon points="1080,356 1116,380 1080,404 1044,380" fill="#fce4ec" stroke="#e91e63" stroke-width="2"/>
+<text font-family="sans-serif" font-size="12" font-weight="700" fill="#880e4f" text-anchor="middle" dominant-baseline="central" x="1080" y="380">lists</text>
+
+<!-- places  cx=1080 cy=560 -->
+<polygon points="1080,536 1116,560 1080,584 1044,560" fill="#fce4ec" stroke="#e91e63" stroke-width="2"/>
+<text font-family="sans-serif" font-size="12" font-weight="700" fill="#880e4f" text-anchor="middle" dominant-baseline="central" x="1080" y="560">places</text>
+
+<!-- contains  cx=1360 cy=720 -->
+<polygon points="1360,696 1402,720 1360,744 1318,720" fill="#fce4ec" stroke="#e91e63" stroke-width="2"/>
+<text font-family="sans-serif" font-size="11" font-weight="700" fill="#880e4f" text-anchor="middle" dominant-baseline="central" x="1360" y="720">contains</text>
+
+<!-- has  cx=800 cy=750 -->
+<polygon points="800,726 836,750 800,774 764,750" fill="#fce4ec" stroke="#e91e63" stroke-width="2"/>
+<text font-family="sans-serif" font-size="12" font-weight="700" fill="#880e4f" text-anchor="middle" dominant-baseline="central" x="800" y="750">has</text>
+
+<!-- wishes  cx=520 cy=720 -->
+<polygon points="520,696 556,720 520,744 484,720" fill="#fce4ec" stroke="#e91e63" stroke-width="2"/>
+<text font-family="sans-serif" font-size="12" font-weight="700" fill="#880e4f" text-anchor="middle" dominant-baseline="central" x="520" y="720">wishes</text>
+
+<!-- sends  cx=520 cy=560 -->
+<polygon points="520,536 556,560 520,584 484,560" fill="#fce4ec" stroke="#e91e63" stroke-width="2"/>
+<text font-family="sans-serif" font-size="12" font-weight="700" fill="#880e4f" text-anchor="middle" dominant-baseline="central" x="520" y="560">sends</text>
+
+<!-- ══════════════════════════════════════
+     CARDINALITY LABELS  (1 and N)
+     ══════════════════════════════════════ -->
+<!-- posts: User side -->
+<text font-family="sans-serif" font-size="13" font-weight="700" fill="#c0392b" text-anchor="middle" x="700" y="534">1</text>
+<!-- posts: AgriItem side -->
+<text font-family="sans-serif" font-size="13" font-weight="700" fill="#c0392b" text-anchor="middle" x="340" y="218">N</text>
+
+<!-- lists: User side -->
+<text font-family="sans-serif" font-size="13" font-weight="700" fill="#c0392b" text-anchor="middle" x="900" y="534">1</text>
+<!-- lists: Machinery side -->
+<text font-family="sans-serif" font-size="13" font-weight="700" fill="#c0392b" text-anchor="middle" x="1260" y="218">N</text>
+
+<!-- places: User side -->
+<text font-family="sans-serif" font-size="13" font-weight="700" fill="#c0392b" text-anchor="middle" x="900" y="550">1</text>
+<!-- places: Order side -->
+<text font-family="sans-serif" font-size="13" font-weight="700" fill="#c0392b" text-anchor="middle" x="1270" y="550">N</text>
+
+<!-- sends: User side -->
+<text font-family="sans-serif" font-size="13" font-weight="700" fill="#c0392b" text-anchor="middle" x="700" y="550">1</text>
+<!-- sends: ChatMessage side -->
+<text font-family="sans-serif" font-size="13" font-weight="700" fill="#c0392b" text-anchor="middle" x="352" y="550">N</text>
+
+<!-- has: User side -->
+<text font-family="sans-serif" font-size="13" font-weight="700" fill="#c0392b" text-anchor="middle" x="788" y="610">1</text>
+<!-- has: CartItem side -->
+<text font-family="sans-serif" font-size="13" font-weight="700" fill="#c0392b" text-anchor="middle" x="788" y="910">N</text>
+
+<!-- wishes: User side -->
+<text font-family="sans-serif" font-size="13" font-weight="700" fill="#c0392b" text-anchor="middle" x="700" y="566">1</text>
+<!-- wishes: WishlistItem side -->
+<text font-family="sans-serif" font-size="13" font-weight="700" fill="#c0392b" text-anchor="middle" x="340" y="862">N</text>
+
+<!-- contains: Order side -->
+<text font-family="sans-serif" font-size="13" font-weight="700" fill="#c0392b" text-anchor="middle" x="1348" y="610">1</text>
+<!-- contains: OrderItem side -->
+<text font-family="sans-serif" font-size="13" font-weight="700" fill="#c0392b" text-anchor="middle" x="1348" y="848">N</text>
+
+<!-- ══════════════════════════════════════
+     LEGEND
+     ══════════════════════════════════════ -->
+<rect x="30" y="1110" width="580" height="68" rx="6" fill="#fffdf5" stroke="#ddd" stroke-width="1"/>
+<rect x="50" y="1128" width="36" height="20" rx="1" fill="#fff8e1" stroke="#e67e22" stroke-width="2"/>
+<text font-family="sans-serif" font-size="11" fill="#444" x="94" y="1141">Entity</text>
+<ellipse cx="160" cy="1138" rx="30" ry="13" fill="#e8f5e9" stroke="#4caf50" stroke-width="1.5"/>
+<text font-family="sans-serif" font-size="11" fill="#1b5e20" text-anchor="middle" dominant-baseline="central" x="160" y="1138">Attribute</text>
+<ellipse cx="270" cy="1138" rx="34" ry="13" fill="#fff9c4" stroke="#e0a800" stroke-width="1.5"/>
+<text font-family="sans-serif" font-size="11" font-weight="700" fill="#7a4800" text-anchor="middle" dominant-baseline="central" x="270" y="1138">PK Attribute</text>
+<ellipse cx="380" cy="1138" rx="30" ry="13" fill="#fce4ec" stroke="#e91e63" stroke-width="1.5"/>
+<text font-family="sans-serif" font-size="11" fill="#880e4f" text-anchor="middle" dominant-baseline="central" x="380" y="1138">FK Attribute</text>
+<polygon points="470,1125 502,1138 470,1151 438,1138" fill="#fce4ec" stroke="#e91e63" stroke-width="1.5"/>
+<text font-family="sans-serif" font-size="11" font-weight="700" fill="#444" x="510" y="1141">Relationship</text>
+<text font-family="sans-serif" font-size="12" font-weight="700" fill="#c0392b" x="50" y="1170">1 / N</text>
+<text font-family="sans-serif" font-size="11" fill="#555" x="74" y="1170">= Cardinality (One-to-Many)</text>
+
+</svg>
+</div>
