@@ -1,0 +1,60 @@
+DATA FIELD,DATA TYPE,SIZE,CONSTRAINT,DESCRIPTION
+User,,,,
+Id,INT,-,"PRIMARY KEY, AUTO_INCREMENT",Unique identifier for each user
+FullName,VARCHAR,100,NOT NULL,Full name of the user
+Email,VARCHAR,100,"NOT NULL, UNIQUE",User's email address (used for login)
+Password,VARCHAR,255,NOT NULL,Hashed password for secure authentication
+Phone,VARCHAR,15,NOT NULL,User's contact phone number
+DateOfBirth,DATE,-,NULL,User's date of birth
+Address,VARCHAR,255,NULL,User's full residential or business address
+Bio,TEXT,-,NULL,Short biography or profile description of the user
+Role,VARCHAR,20,"NOT NULL, DEFAULT 'Farmer'","User role (e.g., Farmer, Buyer, Admin, Vendor)"
+Machinery,,,,
+Id,INT,-,"PRIMARY KEY, AUTO_INCREMENT",Unique identifier for each machinery listing
+Name,VARCHAR,100,NOT NULL,Name/title of the machinery
+Price,"DECIMAL(10,2)",-,NOT NULL,Selling price of the machinery
+Condition,VARCHAR,20,NOT NULL,"Condition of machinery (New, Used, Refurbished)"
+Category,VARCHAR,50,NOT NULL,"Machinery category (Tractor, Harvester, etc.)"
+Description,TEXT,-,NULL,Detailed description of the machinery
+Quantity,INT,-,"NOT NULL, DEFAULT 1",Available stock quantity
+Image,VARCHAR,255,NULL,URL or file path to the machinery image
+Order,,,,
+Id,INT,-,"PRIMARY KEY, AUTO_INCREMENT",Unique identifier for each order
+OrderDate,DATETIME,-,"NOT NULL, DEFAULT CURRENT_TIMESTAMP",Date and time when the order was placed
+TotalAmount,"DECIMAL(10,2)",-,NOT NULL,Total payable amount for the order
+Status,VARCHAR,20,"NOT NULL, DEFAULT 'Pending'","Current order status (Pending, Confirmed, Shipped, Delivered, Cancelled)"
+UserId,INT,-,FOREIGN KEY (references User.Id),ID of the user who placed the order
+OrderItem,,,,
+Id,INT,-,"PRIMARY KEY, AUTO_INCREMENT",Unique identifier for each order item
+OrderId,INT,-,FOREIGN KEY (references Order.Id),ID of the parent order
+ProductName,VARCHAR,100,NOT NULL,Name of the machinery/product ordered
+Price,"DECIMAL(10,2)",-,NOT NULL,Price per unit at the time of ordering
+Quantity,INT,-,NOT NULL,Quantity of items ordered
+ImageURL,VARCHAR,255,NULL,URL of the image of the ordered item
+CartItem,,,,
+Id,INT,-,"PRIMARY KEY, AUTO_INCREMENT",Unique identifier for each cart item
+UserId,INT,-,FOREIGN KEY (references User.Id),ID of the user whose cart it belongs to
+ProductName,VARCHAR,100,NOT NULL,Name of the item added to cart
+Price,"DECIMAL(10,2)",-,NOT NULL,Current price of the item
+Quantity,INT,-,"NOT NULL, DEFAULT 1",Quantity added to cart
+Category,VARCHAR,50,NULL,Category of the cart item
+WishListItem,,,,
+Id,INT,-,"PRIMARY KEY, AUTO_INCREMENT",Unique identifier for each wishlist item
+UserId,INT,-,FOREIGN KEY (references User.Id),ID of the user who added the item
+ProductName,VARCHAR,100,NOT NULL,Name of the item in wishlist
+Price,"DECIMAL(10,2)",-,NOT NULL,Current price of the wishlist item
+Category,VARCHAR,50,NULL,Category of the wishlist item
+ChatMessage,,,,
+Id,INT,-,"PRIMARY KEY, AUTO_INCREMENT",Unique identifier for each chat message
+Sender,INT,-,FOREIGN KEY (references User.Id),ID of the user who sent the message
+Receiver,INT,-,FOREIGN KEY (references User.Id),ID of the user who receives the message
+Content,TEXT,-,NOT NULL,Actual text content of the message
+TimeStamp,DATETIME,-,"NOT NULL, DEFAULT CURRENT_TIMESTAMP",Date and time when the message was sent
+AgriItem,,,,
+Id,INT,-,"PRIMARY KEY, AUTO_INCREMENT",Unique identifier for each agricultural item
+Name,VARCHAR,100,NOT NULL,Name of the agricultural item/product
+Category,VARCHAR,50,NOT NULL,"Category (Seeds, Fertilizers, Tools, Pesticides, etc.)"
+Price,"DECIMAL(10,2)",-,NOT NULL,Price of the agri item
+Quantity,INT,-,NOT NULL,Available quantity in stock
+Description,TEXT,-,NULL,Detailed description of the item
+Image,VARCHAR,255,NULL,URL or file path to the item image
